@@ -51,6 +51,8 @@ job_deploy:
     - cat build/artifact.txt
     - echo "Деплой успешен"
 
-![Pipeline result](screenshots/pipeline-success.png)
+**Скриншот Pipeline:**
+
+![Pipeline success](screenshots/pipeline-success.png)
 
 *Дата выполнения: 01.05.2026*

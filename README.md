@@ -53,6 +53,6 @@ job_deploy:
 
 **Скриншот Pipeline:**
 
-![Pipeline success](screenshots/pipeline-success.png)
+![Pipeline success](screenshots/pipeline.png)
 
 *Дата выполнения: 01.05.2026*

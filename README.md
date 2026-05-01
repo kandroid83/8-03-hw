@@ -16,4 +16,41 @@
 
 ---
 
+## Задание 2
+
+GitLab-проект: `http://10.0.2.15/root/test-project-2`
+
+Файл `.gitlab-ci.yml` (лежит в корне репозитория):
+
+```yaml
+stages:
+  - build
+  - test
+  - deploy
+
+job_build:
+  stage: build
+  script:
+    - echo "Сборка проекта..."
+    - mkdir build
+    - echo "Артефакт" > build/artifact.txt
+  artifacts:
+    paths:
+      - build/
+
+job_test:
+  stage: test
+  script:
+    - echo "Тестирование..."
+    - test -f build/artifact.txt && echo "Тест пройден" || exit 1
+
+job_deploy:
+  stage: deploy
+  script:
+    - echo "Развертывание..."
+    - cat build/artifact.txt
+    - echo "Деплой успешен"
+
+![Pipeline result](screenshots/pipeline-success.png)
+
 *Дата выполнения: 01.05.2026*

@@ -24,3 +24,33 @@
 ![Pipeline success](screenshots/pipeline.png)
 
 *Дата выполнения: 01.05.2026*
+
+Файл `.gitlab-ci.yml`:
+
+stages:
+  - build
+  - test
+  - deploy
+
+job_build:
+  stage: build
+  script:
+    - echo "Сборка проекта..."
+    - mkdir build
+    - echo "Артефакт" > build/artifact.txt
+  artifacts:
+    paths:
+      - build/
+
+job_test:
+  stage: test
+  script:
+    - echo "Тестирование..."
+    - test -f build/artifact.txt && echo "Тест пройден" || exit 1
+
+job_deploy:
+  stage: deploy
+  script:
+    - echo "Развертывание..."
+    - cat build/artifact.txt
+    - echo "Деплой успешен"
